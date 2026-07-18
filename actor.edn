@@ -1,0 +1,6 @@
+{:actor/id :tate
+ :actor/glyph "盾"
+ :actor/tier :tier-b
+ :actor/manifest "manifest.edn"
+ :actor/schema "schema/tate.edn"
+ :actor/bundle ["data" "schema" "manifest.edn" "identity.edn" "dependencies.edn"]}

@@ -1,0 +1,3 @@
+{:identity/id :etzhayyim/tate
+ :identity/did "did:web:etzhayyim.com:actor:tate"
+ :identity/repository "etzhayyim/com-etzhayyim-tate"}
