@@ -2,7 +2,7 @@
   "tate 盾 — jurisdiction-coverage honesty tests (G10, ADR-2606112400). 1:1 port of
   test_coverage.py. clojure.test."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as terms]
             [tate.methods.respond-plan :as respond]
             [tate.methods.coverage-report :as cov-ns]
@@ -91,7 +91,7 @@
 
 (deftest test-report-names-the-gap
   (let [text (cov-ns/report (cov-ns/coverage))]
-    (is (or (str/includes? (str/lower-case text) "named gaps") (str/includes? text "Named gaps")))
+    (is (or (str/includes? (str/lower text) "named gaps") (str/includes? text "Named gaps")))
     (is (str/includes? text ":unknown-jurisdiction"))
     (is (str/includes? text "193"))))
 

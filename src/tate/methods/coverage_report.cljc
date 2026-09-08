@@ -7,7 +7,7 @@
 
   House style: ':…' strings stay strings; pure fns; HALF_EVEN round via exact BigDecimal;
   Python f'{x:.2%}' / f'{n:,}' matched exactly. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as terms]
             [tate.methods.respond-plan :as respond]))
 

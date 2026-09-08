@@ -23,7 +23,7 @@
   No-server-key: this writer holds no key and performs NO network I/O — it only
   appends to a local file. The ledger is a record of the MEMBER's own legal
   posture, NEVER advice, NEVER a verdict, NEVER the practice of law (G2/G3)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (defn add [entity attr value] [":db/add" entity attr value])

@@ -15,7 +15,7 @@
 
   Parity: json.dumps(obj, ensure_ascii=False, indent=N) — faithful indented encoder
   (key insertion order preserved via array-map); the tests json.loads the output back."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as ts]
             [tate.methods.respond-plan :as rp]))
 
@@ -194,8 +194,8 @@
                 "> この雛形は member 本人が【 】を埋めて確定・提出するための構造テンプレートです。"
                 ""])
             official (filterv (fn [o]
-                                (some #(str/includes? (str/lower-case (get o ":opt/label"))
-                                                      (str/lower-case %))
+                                (some #(str/includes? (str/lower (get o ":opt/label"))
+                                                      (str/lower %))
                                       OFFICIAL-FORM-HINTS))
                               subs*)]
         (when (seq official)

@@ -14,7 +14,7 @@
 
   Parity: `html.escape(s, quote=True)` (escapes & < > \" ') and `json.dumps(d,
   ensure_ascii=False)` (Python default separators ', ' / ': ', raw unicode) are mirrored."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as ts]
             [tate.methods.respond-plan :as rp]
             [tate.methods.coverage-report :as cr]))

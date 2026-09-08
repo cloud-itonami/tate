@@ -7,7 +7,7 @@
   checklist + template and cases index. Inlines a minimal JSON
   reader (the generated files are JSON). File I/O behind #?(:clj …)."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.set :as set]
             [tate.methods.terms-scan :as ts]
             [tate.methods.respond-plan :as rp]

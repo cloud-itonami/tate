@@ -17,7 +17,7 @@
 
   House style: Python ':…' keyword strings stay strings; pure fns; file I/O at the
   #?(:clj) edge. Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.edn :as edn]))
 
 (def risk-order {":high" 0 ":mid" 1 ":info" 2})
@@ -53,14 +53,14 @@
   "Flags for one document. G5: pattern context must match the document context.
   G10: pattern jurisdiction must match the document jurisdiction (default :jp)."
   [doc patterns]
-  (let [text (str/lower-case (get doc ":doc/text" ""))   ;; casefold ≈ lower-case
+  (let [text (str/lower (get doc ":doc/text" ""))   ;; casefold ≈ lower-case
         ctx (get doc ":doc/context")
         juris (get doc ":doc/jurisdiction" ":jp")
         flags
         (for [p patterns
               :when (= (get p ":clause/context") ctx)            ;; G5
               :when (= (get p ":clause/jurisdiction" ":jp") juris) ;; G10
-              :let [hit (some (fn [k] (when (str/includes? text (str/lower-case k)) k))
+              :let [hit (some (fn [k] (when (str/includes? text (str/lower k)) k))
                               (get p ":clause/keywords"))]
               :when (some? hit)]
           {"doc" (get doc ":doc/id")

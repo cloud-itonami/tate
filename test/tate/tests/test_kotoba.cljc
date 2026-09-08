@@ -2,7 +2,7 @@
 ;; tate 盾 — defense-ledger persistence + heartbeat tests.
 ;; Run: bb test
 (ns tate.tests.test-kotoba
-  (:require [tate.methods.kotoba :as k]
+  (:require [kotoba.lang.text] [tate.methods.kotoba :as k]
             [tate.methods.autorun :as auto]
             [clojure.test :refer [deftest is run-tests]]
             [clojure.java.io :as io]))
@@ -17,7 +17,7 @@
   (is (= (k/tx-cid (d1) "") (k/tx-cid (d1) "")) "same input → same cid")
   (is (not= (k/tx-cid (d1) "") (k/tx-cid (d2) "")) "different datoms → different cid")
   (is (not= (k/tx-cid (d1) "") (k/tx-cid (d1) "bdeadbeef")) "different prev → different cid")
-  (is (clojure.string/starts-with? (k/tx-cid (d1) "") "b")))
+  (is (kotoba.lang.text/starts-with? (k/tx-cid (d1) "") "b")))
 
 (deftest append-read-roundtrip
   (let [p (tmp)]
@@ -50,7 +50,7 @@
       (let [c1 (k/append-tx (k/make-tx (d1) "t1" "as1" "") p)]
         (k/append-tx (k/make-tx (d2) "t2" "as2" c1) p)
         ;; corrupt the 2nd tx's datoms in place (cid no longer matches)
-        (let [corrupted (clojure.string/replace (slurp p) ":kaiyaku" ":referral")]
+        (let [corrupted (kotoba.lang.text/replace (slurp p) ":kaiyaku" ":referral")]
           (spit p corrupted)
           (let [v (k/verify-chain p)]
             (is (not (:ok v)) "tamper must break the chain"))))
