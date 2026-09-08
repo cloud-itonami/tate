@@ -2,7 +2,7 @@
   "tate 盾 — response-planner tests (ADR-2606112301 + worldwide 2606112400). 1:1 port of
   test_respond.py. clojure.test."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as terms]
             [tate.methods.respond-plan :as r]))
 

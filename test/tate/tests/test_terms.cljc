@@ -2,7 +2,7 @@
   "tate 盾 — clause-scanner + Datom-emit tests (ADR-2606112301). 1:1 port of test_terms.py.
   clojure.test."
   (:require [clojure.test :refer [deftest is testing run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as terms]
             [tate.methods.edn :as edn]
             [tate.methods.datom-emit :as datom]))

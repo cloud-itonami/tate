@@ -20,7 +20,7 @@
 
   House style: ':…' strings stay strings; pure fns; I/O at #?(:clj) edges; gate → ex-info.
   Portable .cljc."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.edn :as edn]
             [tate.methods.terms-scan :as terms]))
 
@@ -140,18 +140,18 @@
   ([notice procs] (classify notice procs (load-jurisdictions)))
   ([notice procs jurisdictions]
    (let [juris (get notice ":notice/jurisdiction" ":jp")
-         text (str/lower-case (get notice ":notice/text" ""))
+         text (str/lower (get notice ":notice/text" ""))
          channel (get notice ":notice/channel")]
      (if-not (contains? jurisdictions juris)
        [nil ":unknown-jurisdiction"]                       ;; G10
        (let [matched (some (fn [p]
                              (when (and (= (get p ":proc/jurisdiction" ":jp") juris)  ;; G10
-                                        (some #(str/includes? text (str/lower-case %))
+                                        (some #(str/includes? text (str/lower %))
                                               (get p ":proc/trigger-keywords")))
                                p))
                            procs)]
          (if (nil? matched)
-           (if (and (some #(str/includes? text (str/lower-case %)) (court-vocabulary procs))
+           (if (and (some #(str/includes? text (str/lower %)) (court-vocabulary procs))
                     (contains? #{":sms" ":email" ":mail"} channel))
              [nil ":suspected-fake"]
              [nil ":unknown"])

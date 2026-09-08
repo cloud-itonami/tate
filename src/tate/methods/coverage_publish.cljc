@@ -14,7 +14,7 @@
 
   Distinct from the per-member scan/respond legs (which run over the member's OWN private docs,
   consent-bound + encrypted, never published). This namespace publishes registry METADATA only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.coverage-report :as cov]
             [tate.methods.cid :as cid]))
 

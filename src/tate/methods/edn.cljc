@@ -14,7 +14,7 @@
   string verbatim.
 
   Stdlib only (regex tokenizer); file I/O at the #?(:clj) edge."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── tokenizer (mirror of the Python _TOK regex) ───────────────────────────
 ;; _TOK = re.compile(r'[\s,]+|;[^\n]*|(\[|\]|\{|\}|"(?:\\.|[^"\\])*"|[^\s,\[\]{}]+)')

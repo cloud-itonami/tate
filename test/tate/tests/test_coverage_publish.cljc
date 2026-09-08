@@ -3,7 +3,7 @@
   Asserts: aggregate-only (allowlist), G1 member-data-free (structural), CID stable +
   idempotent + ipfs-parity-shaped, and the JSON wrapper round-trips the CID."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [tate.methods.coverage-publish :as pub]))
 
 (deftest test-digest-is-aggregate-allowlist-only

@@ -5,7 +5,7 @@
   Generates into a temp dir at load time (mirroring the module-level _PAGES in Python),
   then asserts page set / disclaimer / no-tracking / sitemap / SEO / track pages."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.set :as set]
             [tate.methods.terms-scan :as ts]
             [tate.methods.respond-plan :as rp]
@@ -79,7 +79,7 @@
 
 (deftest test-no-tracking-no-external-assets
   (doseq [p pages]
-    (let [text (str/lower-case (slurp-page p))]
+    (let [text (str/lower (slurp-page p))]
       (doseq [bad ["gtag" "analytics" "googletagmanager" "facebook" "pixel"
                    "<script src=" "cdn."]]
         (is (not (str/includes? text bad)) [p bad])))))
@@ -100,8 +100,8 @@
                 "kr.html" "해고 통지" "nl.html" "verzoekschrift echtscheiding"
                 "fr.html" "licenciement"}]
     (doseq [[page kw] checks]
-      (let [head (str/lower-case (first (str/split (slurp-page page) #"</head>")))]
-        (is (str/includes? head (str/lower-case kw)) [page kw])))))
+      (let [head (str/lower (first (str/split (slurp-page page) #"</head>")))]
+        (is (str/includes? head (str/lower kw)) [page kw])))))
 
 (deftest test-track-pages
   (let [tp (slurp-page "track-labor.html")]

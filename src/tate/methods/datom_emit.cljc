@@ -7,7 +7,7 @@
   computed on READ and never stored as ground state (G2).
 
   House style: ':…' strings stay strings; fmt-g for {v:g}; pure fn + #?(:clj) I/O edge."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [tate.methods.terms-scan :as terms]
             [tate.methods.respond-plan :as respond]))
 
