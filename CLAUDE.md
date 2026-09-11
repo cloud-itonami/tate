@@ -9,4 +9,4 @@
   paths.
 - Preserve the non-adjudication, UPL/self-submit, deadline-honesty,
   jurisdiction-honesty, fake-notice guard, and referral-forward invariants.
-- Run `bb test` before publishing changes.
+- Run `kbb -M:test` before publishing changes.

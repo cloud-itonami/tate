@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; tate 盾 — legal-defense DATOM-LOG writer (content-addressed commit-DAG).
 (ns tate.methods.kotoba
   "kotoba.cljc — tate 盾 append-only DEFENSE LEDGER writer

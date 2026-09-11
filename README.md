@@ -10,9 +10,9 @@ EDN is canonical for actor metadata, registries, schema, and state. JSON emitted
 by the web/case generators is a wire projection only and is not canonical.
 
 ```bash
-bb test
-bb -m tate.methods.coverage-report
-bb -m tate.methods.datom-emit
+kbb -M:test
+kbb -m tate.methods.coverage-report
+kbb -m tate.methods.datom-emit
 ```
 
 Layout:
