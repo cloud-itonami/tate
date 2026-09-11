@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; tate 盾 — autonomous heartbeat: load registries + member docs → append GROUND datoms.
 (ns tate.methods.autorun
   "autorun.cljc — tate 盾 deterministic heartbeat (on ADR-2605312345, ugachi pattern).

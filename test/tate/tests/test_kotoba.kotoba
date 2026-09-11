@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; tate 盾 — defense-ledger persistence + heartbeat tests.
 ;; Run: bb test
 (ns tate.tests.test-kotoba
