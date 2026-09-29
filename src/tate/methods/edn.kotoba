@@ -3,7 +3,7 @@
   1:1 Clojure port of the `_TOK`/`_tokens`/`_atom`/`_parse`/`read_edn` reader embedded
   in `methods/terms_scan.py` (shared by respond_plan / coverage_report / datom_emit).
 
-  Fidelity invariant (root CLAUDE.md convention): keywords are kept as their \":ns/name\"
+  Fidelity invariant (root AGENTS.md convention): keywords are kept as their \":ns/name\"
   STRINGS, NOT Clojure keywords. The whole tate pipeline keys every record on string keys
   (\":clause/id\", \":proc/id\", \":notice/jurisdiction\", …) and the Python `:`-tokens
   stay strings — so the loader must yield the same string shape the Python `read_edn` does,
